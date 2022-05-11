@@ -1,4 +1,4 @@
-.footer {
+.footer__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +8,10 @@
   font-size: 15px;
   border-top: 1px solid #e6e6e6;
   color: gray;
+
+  @media (max-width: 430px) {
+    height: 50px;
+  }
 
   &:before {
     content: '';
@@ -26,28 +30,17 @@
   }
 }
 
-.todo-count {
+.footer__todo-count {
   text-align: left;
-
-  strong {
-    font-weight: 300;
-  }
 }
 
-.clear-completed,
-html .clear-completed:active {
+.footer__clear_completed {
   position: relative;
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
-}
 
-.clear-completed:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 430px) {
-  .footer {
-    height: 50px;
+  &:hover {
+    text-decoration: underline;
   }
 }

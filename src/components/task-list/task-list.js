@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Task from "../task"
 import './task-list.css'
 import TaskEdit from "../task-edit";
+import {logDOM} from "@testing-library/react";
 
 
 export default class TaskList extends React.Component {
@@ -24,6 +25,8 @@ export default class TaskList extends React.Component {
         onLabelChange: PropTypes.func
     }
 
+
+
     render() {
         const { todos, onToggleEdit,
                 onToggleDone, onDeleted,
@@ -33,7 +36,7 @@ export default class TaskList extends React.Component {
             if (elem.editing) {
                 return (
                     <TaskEdit {...elem}
-                              todos={this.props.todos}
+                              todos={todos}
                               onToggleEdit={() => onToggleEdit(elem.id)}
                               onLabelChange={onLabelChange}
                     />
@@ -44,13 +47,18 @@ export default class TaskList extends React.Component {
                           onToggleDone={() => onToggleDone(elem.id)}
                           onToggleEdit={() => onToggleEdit(elem.id)}
                           onDeleted={() => onDeleted(elem.id)}
+
                     />
                 )}
         })
+
+
         return (
-            <ul className="todo-list">
-                { elements }
+            <ul className="task-list__container">
+                {elements}
             </ul>
         );
+
+
     }
 }

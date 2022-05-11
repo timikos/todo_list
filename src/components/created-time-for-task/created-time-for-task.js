@@ -4,11 +4,6 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import './created-time-for-task.css'
 
 export default class CreatedTimeForTask extends React.Component {
-    constructor() {
-        super();
-        this.currentDate = new Date();
-        this.createDate = new Date();
-    }
 
     static defaultProps = {
 
@@ -17,6 +12,9 @@ export default class CreatedTimeForTask extends React.Component {
     static propTypes = {
 
     }
+
+    currentDate = new Date();
+    createDate = new Date();
 
     state = {
         timeCreated : formatDistanceToNow(new Date())
@@ -42,7 +40,7 @@ export default class CreatedTimeForTask extends React.Component {
 
     render () {
         return (
-            <span className="created">{this.state.timeCreated}</span>
+            <span className="created-time">{this.state.timeCreated}</span>
         )
     }
 }

@@ -23,7 +23,6 @@ export default class TaskEdit extends React.Component{
     state = {
         label : ""
     }
-    className = "view"
 
     tmpLabelChange = (e) => {
         this.setState({
@@ -35,15 +34,9 @@ export default class TaskEdit extends React.Component{
         const { id, todos, onToggleEdit,
              onLabelChange } = this.props
 
-
-        // if (this.props.editing) {
-        //     this.className += " editing"
-        // }
-
         return (
-            <li key={id}
-                >
-                <div className={this.className}>
+            <li key={id}>
+                <div className="">
                 <form onSubmit={(e) =>{
                     e.preventDefault()
                     onLabelChange(todos, id, e, this.state.label)
@@ -51,19 +44,13 @@ export default class TaskEdit extends React.Component{
                 }}>
                     <input
                         type="text"
-                        className="edit"
+                        className="task-edit__input"
                         onChange={(e) => {
                             e.preventDefault()
                             this.tmpLabelChange(e)
+                            }
                         }
-                        }
-
                     />
-                    <button
-                        className="icon icon-edit"
-                    >
-
-                    </button>
                 </form>
                 </div>
             </li>

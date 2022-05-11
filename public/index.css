@@ -22,8 +22,6 @@ body {
 }
 
 button {
-  margin: 0;
-  padding: 0;
   border: 0;
   background: none;
   font-size: 100%;
@@ -42,10 +40,6 @@ button::-moz-focus-inner {
 
 :focus {
   outline: 0;
-}
-
-.hidden {
-  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

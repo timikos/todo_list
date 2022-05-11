@@ -1,3 +1,8 @@
-
+.task-edit__input {
+  display: block;
+  width: calc(100% - 43px);
+  padding: 20px 20px;
+  margin: 0 0 0 0;
+}
 
 /*# sourceMappingURL=task-edit.css.map */

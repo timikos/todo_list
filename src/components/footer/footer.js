@@ -9,9 +9,9 @@ const Footer = ({ doneCount,
                 filterAll, delAllItems }) => {
 
     return (
-        <footer className="footer">
+        <footer className="footer__container">
             <span
-                className="todo-count"
+                className="footer__todo-count"
                 >{doneCount} items left
             </span>
             <TasksFilter
@@ -20,7 +20,7 @@ const Footer = ({ doneCount,
                 filterAll={filterAll}
             />
             <button
-                className="clear-completed"
+                className="footer__clear_completed"
                 onClick={delAllItems}
             >Clear completed
             </button>

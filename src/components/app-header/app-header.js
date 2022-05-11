@@ -6,8 +6,8 @@ import './app-header.css';
 
 const AppHeader = ({ addItem }) => {
     return (
-        <header className="header">
-            <h1>todos</h1>
+        <header className="header__container">
+            <h1 className="header__text">todos</h1>
             <NewTaskForm addItem={addItem}/>
         </header>
     );

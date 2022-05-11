@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["task-list.scss"],"names":[],"mappings":";AAAA;EACE;EACA;EACA;AAAc;EACd;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAIJ;EACE;;AAEA;EACE;;AAIJ;EACE;EACA;;AAEA;EACE;;AAIJ;EACE","file":"task-list.css"}
+{"version":3,"sourceRoot":"","sources":["task-list.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA","file":"task-list.css"}

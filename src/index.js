@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'
 
 import TodoApp from "./components/todo-app";
 
 
-ReactDOM.render(<TodoApp />,document.getElementById("root"));
+createRoot(document.getElementById('root')).render(<TodoApp tab="home" />)

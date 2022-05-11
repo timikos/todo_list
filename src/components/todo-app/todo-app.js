@@ -23,8 +23,12 @@ export default class TodoApp extends React.Component {
             this.createTodoItem('Completed task'),
             this.createTodoItem('Editing task'),
             this.createTodoItem('Active task'),
-        ]
+        ],
+        completed: [],
+        active: [],
+        activeFilter: "all"
     }
+
 
     createTodoItem(label) {
         return {
@@ -35,10 +39,13 @@ export default class TodoApp extends React.Component {
         }
     }
 
+
+
     toggleProperty(arr, id, propName) {
         const inx = arr.findIndex((elem) => elem.id === id)
         const oldItem = arr[inx]
         const newItem = {...oldItem, [propName]: !oldItem[propName]}
+
         return [
             ...arr.slice(0, inx),
             newItem,
@@ -49,7 +56,7 @@ export default class TodoApp extends React.Component {
     onToggleDone = (id) => {
         this.setState(({todoData}) => {
             return {
-                todoData: this.toggleProperty(todoData, id, "done")
+                todoData: this.toggleProperty(todoData, id, "done"),
             }
         })
     }
@@ -108,24 +115,42 @@ export default class TodoApp extends React.Component {
     deleteAllItems = () => {
         this.setState(() => {
             return {
-                todoData: []
+                completed: []
             }
         })
     }
 
     filterAll = () => {
-        console.log("TT")
+        return this.state.todoData
     }
 
     filterActive = () => {
-        console.log("TT")
+
+        this.state.activeFilter = "active"
+
     }
 
     filterCompleted = () => {
-        console.log("TT")
+
+        this.state.activeFilter = "completed"
+
     }
 
+    filterTask = (tasks, activeFilter) => {
+        switch (activeFilter){
+            case "completed":
+                return tasks.filter(elem => elem.done)
+                break
+            case "active":
+                return tasks.filter(elem => !elem.done)
+                break
+            default:
+                return tasks;
+}
+}
+
     render() {
+
         const doneCount = this.state.todoData
             .filter(elem => elem.done).length
 
@@ -135,6 +160,8 @@ export default class TodoApp extends React.Component {
                 <section className="main">
                     <TaskList
                         todos={this.state.todoData}
+                        todosCompleted={this.state.completed}
+                        todosActive={this.state.active}
                         onDeleted={this.deleteItem}
                         onToggleDone={this.onToggleDone}
                         onToggleEdit={this.onToggleEdit}

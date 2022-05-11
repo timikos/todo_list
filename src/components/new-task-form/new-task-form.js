@@ -16,7 +16,7 @@ export default class NewTaskForm extends React.Component {
         label : ""
     }
 
-    searchText = "What needs to be done?"
+    placeholderSearchText = "What needs to be done?"
 
     onLabelChange = (e) => {
         this.setState({
@@ -35,12 +35,12 @@ export default class NewTaskForm extends React.Component {
 
     render() {
         return (
-        <form className=""
+        <form className="new-task__container"
         onSubmit={this.onSubmit}>
             <input
                 type="text"
-                className="new-todo"
-                placeholder={this.searchText}
+                className="new-task__input"
+                placeholder={this.placeholderSearchText}
                 autoFocus
                 onChange={this.onLabelChange}
                 value={this.state.label}

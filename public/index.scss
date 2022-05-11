@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 
-*,*:after,*:before{
+*, *:after, *:before{
   box-sizing: inherit;
 }
 
@@ -22,8 +22,6 @@ body {
 }
 
 button {
-  margin: 0;
-  padding: 0;
   border: 0;
   background: none;
   font-size: 100%;
@@ -45,6 +43,3 @@ button {
   outline: 0;
 }
 
-.hidden {
-  display: none;
-}

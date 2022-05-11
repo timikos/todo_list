@@ -30,26 +30,27 @@ export default class Task extends React.Component{
         const { name, done,
             onDeleted, onToggleDone,
             onToggleEdit,
-            editing, id } = this.props;
+            editing, id,
+           } = this.props;
 
-        let className = "view"
+        let classNameContainer = ""
 
         if (editing) {
-            className += " editing"
+            classNameContainer += " task_hidden"
         }
 
         if (done) {
-            className += " completed"
+            classNameContainer += " task_completed"
         }
 
         return (
-            <li key={id}
-                >
-                <div className={className}>
-                    <input className="toggle" />
+            <li key={id}>
+                <div className={classNameContainer}>
+                    <input className="radio-button__toggle" />
                     <label
-                    onClick={ onToggleDone }>
-                        <span className="description">
+                    onClick={ onToggleDone }
+                    className="task__label">
+                        <span className="task__description">
                             {name}
                         </span>
                         <CreatedTimeForTask />
