@@ -16,43 +16,32 @@ export default class TasksFilter extends React.Component {
         filterAll: PropTypes.func
     }
 
-
     render() {
-
         let classNameContainer = ""
-
         if (this.selected){
             classNameContainer += " filter_selected"
         }
-
         const { filterActive,
             filterCompleted,
             filterAll } = this.props
-
         return (
 
         <ul className="filters__container">
             <li key={1}>
                 <button className={classNameContainer}
-                        onClick={() => {
-                           filterAll();
-                        }}
+                        onClick={filterAll}
                 >All
                 </button>
             </li>
             <li key={2}>
                 <button className={classNameContainer}
-                        onClick={() => {
-                            filterActive()
-                        }}
+                        onClick={filterActive}
                 >Active
                 </button>
             </li>
             <li key={3}>
                 <button className={classNameContainer}
-                        onClick={() => {
-                            filterCompleted();
-                        }}
+                        onClick={filterCompleted}
                 >Completed
                 </button>
             </li>

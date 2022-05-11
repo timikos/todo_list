@@ -24,11 +24,8 @@ export default class TodoApp extends React.Component {
             this.createTodoItem('Editing task'),
             this.createTodoItem('Active task'),
         ],
-        completed: [],
-        active: [],
-        activeFilter: "all"
+        activeFilter: ""
     }
-
 
     createTodoItem(label) {
         return {
@@ -38,8 +35,6 @@ export default class TodoApp extends React.Component {
             id: this.maxId++,
         }
     }
-
-
 
     toggleProperty(arr, id, propName) {
         const inx = arr.findIndex((elem) => elem.id === id)
@@ -112,28 +107,53 @@ export default class TodoApp extends React.Component {
         })
     }
 
+    arr = []
+
     deleteAllItems = () => {
-        this.setState(() => {
+        this.setState( ({ todoData }) => {
+            let newArr = []
+            for (let i = 0; i < todoData.length; i++) {
+                if (todoData[i].done === true)
+                this.arr.push(i)
+            }
+
+            // for (let i = 0; i < todoData.length; i++) {
+            //     for (let j = 0; j < this.arr.length; j++){
+            //         if (i !== j){
+            //             newArr.push(todoData[i])
+            //             console.log(newArr)
+            //         }
+            //     }
+
+                // newArr = [
+                //     newArr.slice(0, this.arr[i]),
+                //     newArr.slice(this.arr[i] + 1)
+                // ]
+            // }
+
+
             return {
-                completed: []
+                todoData : newArr
             }
         })
     }
 
     filterAll = () => {
-        return this.state.todoData
+        this.setState({
+            activeFilter : "all"
+        })
     }
 
     filterActive = () => {
-
-        this.state.activeFilter = "active"
-
+        this.setState({
+            activeFilter : "active"
+        })
     }
 
     filterCompleted = () => {
-
-        this.state.activeFilter = "completed"
-
+        this.setState({
+            activeFilter : "completed"
+        })
     }
 
     filterTask = (tasks, activeFilter) => {
@@ -145,9 +165,9 @@ export default class TodoApp extends React.Component {
                 return tasks.filter(elem => !elem.done)
                 break
             default:
-                return tasks;
-}
-}
+        return tasks;
+        }
+    }
 
     render() {
 
@@ -159,7 +179,7 @@ export default class TodoApp extends React.Component {
                 <AppHeader addItem={this.addItem}/>
                 <section className="main">
                     <TaskList
-                        todos={this.state.todoData}
+                        todos={this.filterTask(this.state.todoData, this.state.activeFilter)}
                         todosCompleted={this.state.completed}
                         todosActive={this.state.active}
                         onDeleted={this.deleteItem}

@@ -28,17 +28,15 @@ export default class Task extends React.Component{
 
     render() {
         const { name, done,
+            editing, id,
             onDeleted, onToggleDone,
             onToggleEdit,
-            editing, id,
            } = this.props;
 
         let classNameContainer = ""
-
         if (editing) {
             classNameContainer += " task_hidden"
         }
-
         if (done) {
             classNameContainer += " task_completed"
         }

@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Task from "../task"
 import './task-list.css'
 import TaskEdit from "../task-edit";
-import {logDOM} from "@testing-library/react";
-
 
 export default class TaskList extends React.Component {
 
@@ -24,8 +22,6 @@ export default class TaskList extends React.Component {
         onDeleted: PropTypes.func,
         onLabelChange: PropTypes.func
     }
-
-
 
     render() {
         const { todos, onToggleEdit,
@@ -52,13 +48,10 @@ export default class TaskList extends React.Component {
                 )}
         })
 
-
         return (
             <ul className="task-list__container">
                 {elements}
             </ul>
         );
-
-
     }
 }
