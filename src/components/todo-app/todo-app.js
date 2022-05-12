@@ -107,33 +107,10 @@ export default class TodoApp extends React.Component {
         })
     }
 
-    arr = []
-
     deleteAllItems = () => {
         this.setState( ({ todoData }) => {
-            let newArr = []
-            for (let i = 0; i < todoData.length; i++) {
-                if (todoData[i].done === true)
-                this.arr.push(i)
-            }
-
-            // for (let i = 0; i < todoData.length; i++) {
-            //     for (let j = 0; j < this.arr.length; j++){
-            //         if (i !== j){
-            //             newArr.push(todoData[i])
-            //             console.log(newArr)
-            //         }
-            //     }
-
-                // newArr = [
-                //     newArr.slice(0, this.arr[i]),
-                //     newArr.slice(this.arr[i] + 1)
-                // ]
-            // }
-
-
             return {
-                todoData : newArr
+                todoData : todoData.filter( elem => elem.done !== true)
             }
         })
     }
@@ -160,10 +137,8 @@ export default class TodoApp extends React.Component {
         switch (activeFilter){
             case "completed":
                 return tasks.filter(elem => elem.done)
-                break
             case "active":
                 return tasks.filter(elem => !elem.done)
-                break
             default:
         return tasks;
         }

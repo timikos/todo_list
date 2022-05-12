@@ -35,25 +35,23 @@ export default class TaskEdit extends React.Component{
              onLabelChange } = this.props
 
         return (
-            <li key={id}>
                 <div className="">
-                <form onSubmit={(e) =>{
-                    e.preventDefault()
-                    onLabelChange(todos, id, e, this.state.label)
-                    onToggleEdit(id)
-                }}>
-                    <input
-                        type="text"
-                        className="task-edit__input"
-                        onChange={(e) => {
-                            e.preventDefault()
-                            this.tmpLabelChange(e)
+                    <form onSubmit={(e) =>{
+                        e.preventDefault()
+                        onLabelChange(todos, id, e, this.state.label)
+                        onToggleEdit(id)
+                    }}>
+                        <input
+                            type="text"
+                            className="task-edit__input"
+                            onChange={(e) => {
+                                e.preventDefault()
+                                this.tmpLabelChange(e)
+                                }
                             }
-                        }
-                    />
-                </form>
+                        />
+                    </form>
                 </div>
-            </li>
         )
     }
 }

@@ -31,20 +31,24 @@ export default class TaskList extends React.Component {
         const elements = todos.map((elem) => {
             if (elem.editing) {
                 return (
-                    <TaskEdit {...elem}
-                              todos={todos}
-                              onToggleEdit={() => onToggleEdit(elem.id)}
-                              onLabelChange={onLabelChange}
-                    />
+                    <li key={elem.id}>
+                        <TaskEdit {...elem}
+                                  todos={todos}
+                                  onToggleEdit={() => onToggleEdit(elem.id)}
+                                  onLabelChange={onLabelChange}
+                        />
+                    </li>
                 )
             } else {
                 return (
-                    <Task { ...elem }
-                          onToggleDone={() => onToggleDone(elem.id)}
-                          onToggleEdit={() => onToggleEdit(elem.id)}
-                          onDeleted={() => onDeleted(elem.id)}
+                    <li key={elem.id}>
+                        <Task { ...elem }
+                              onToggleDone={() => onToggleDone(elem.id)}
+                              onToggleEdit={() => onToggleEdit(elem.id)}
+                              onDeleted={() => onDeleted(elem.id)}
 
-                    />
+                        />
+                    </li>
                 )}
         })
 

@@ -28,9 +28,8 @@ export default class Task extends React.Component{
 
     render() {
         const { name, done,
-            editing, id,
-            onDeleted, onToggleDone,
-            onToggleEdit,
+            editing, onDeleted,
+            onToggleDone, onToggleEdit,
            } = this.props;
 
         let classNameContainer = ""
@@ -42,7 +41,7 @@ export default class Task extends React.Component{
         }
 
         return (
-            <li key={id}>
+
                 <div className={classNameContainer}>
                     <input className="radio-button__toggle" />
                     <label
@@ -66,7 +65,7 @@ export default class Task extends React.Component{
 
                     </button>
                 </div>
-            </li>
+
         )
     }
 }
