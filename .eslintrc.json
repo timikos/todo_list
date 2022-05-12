@@ -10,7 +10,8 @@
         "plugin:prettier/recommended",
         "plugin:import/errors",
         "plugin:import/warnings",
-        "airbnb"
+        "airbnb",
+        "plugin:react/jsx-runtime"
     ],
     "parser": "@babel/eslint-parser",
 
@@ -27,6 +28,8 @@
     },
     "plugins": ["react", "prettier", "import"],
     "rules": {
+        "no-shadow": "off",
+        "react/jsx-props-no-spreading": "off",
         "react/button-has-type": "off",
         "no-plusplus": "off",
         "react/static-property-placement": "off",
