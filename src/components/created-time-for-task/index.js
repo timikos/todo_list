@@ -1,3 +1,3 @@
-import CreatedTimeForTask from './created-time-for-task';
+import CreatedTimeForTask from './created-time-for-task'
 
-export default CreatedTimeForTask;
+export default CreatedTimeForTask

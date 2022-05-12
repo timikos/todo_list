@@ -1,18 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import AppHeader from '../app-header';
-import TaskList from '../task-list';
-import Footer from '../footer';
-import TestAddButton from '../test-add-button';
+import AppHeader from '../app-header'
+import TaskList from '../task-list'
+import Footer from '../footer'
 
-import './todo-app.css';
+import './todo-app.css'
 
 export default class TodoApp extends React.Component {
-  static defaultProps = {};
+  static defaultProps = {}
 
-  static propTypes = {};
+  static propTypes = {}
 
-  maxId = 1;
+  maxId = 1
 
   state = {
     todoData: [
@@ -21,75 +20,6 @@ export default class TodoApp extends React.Component {
       this.createTodoItem('Active task'),
     ],
     activeFilter: '',
-  }
-
-  createTodoItem(label) {
-    return {
-      name: label,
-      done: false,
-      editing: false,
-      id: this.maxId++,
-    }
-  }
-
-  toggleProperty(arr, id, propName) {
-    const inx = arr.findIndex((elem) => elem.id === id);
-    const oldItem = arr[inx];
-    const newItem = { ...oldItem, [propName]: !oldItem[propName] };
-
-    return [...arr.slice(0, inx), newItem, ...arr.slice(inx + 1)];
-  }
-
-  onToggleDone = (id) => {
-    this.setState(({ todoData }) => ({
-      todoData: this.toggleProperty(todoData, id, 'done'),
-    }))
-  }
-
-  onToggleEdit = (id) => {
-    this.setState(({ todoData }) => ({
-      todoData: this.toggleProperty(todoData, id, 'editing'),
-    }))
-  }
-
-  onLabelChange = (arr, id, e, text) => {
-    const inx = arr.findIndex((elem) => elem.id === id);
-    const oldItem = arr[inx];
-    const newItem = { ...oldItem, name: text };
-    const newArr = [...arr.slice(0, inx), newItem, ...arr.slice(inx + 1)];
-
-    this.setState(() => ({
-      todoData: newArr,
-    }))
-  }
-
-  addItem = (text = 'NEW') => {
-    const newItem = this.createTodoItem(text);
-
-    this.setState(({ todoData }) => {
-      const newArr = [...todoData, newItem];
-      return {
-        todoData: newArr,
-      }
-    });
-  };
-
-  deleteItem = (id) => {
-    this.setState(({ todoData }) => {
-      const inx = todoData.findIndex((elem) => elem.id === id);
-
-      const newArr = [...todoData.slice(0, inx), ...todoData.slice(inx + 1)];
-
-      return {
-        todoData: newArr,
-      }
-    });
-  };
-
-  deleteAllItems = () => {
-    this.setState(({ todoData }) => ({
-      todoData: todoData.filter((elem) => elem.done !== true),
-    }));
   }
 
   filterAll = () => {
@@ -112,18 +42,87 @@ export default class TodoApp extends React.Component {
 
   filterTask = (tasks, activeFilter) => {
     switch (activeFilter) {
-      case 'completed':
-        return tasks.filter((elem) => elem.done);
+    case 'completed':
+      return tasks.filter((elem) => elem.done)
     case 'active':
-        return tasks.filter((elem) => !elem.done);
+      return tasks.filter((elem) => !elem.done)
     default:
-        return tasks;
+      return tasks
+    }
+  }
+
+  onToggleDone = (id) => {
+    this.setState(({ todoData }) => ({
+      todoData: this.toggleProperty(todoData, id, 'done'),
+    }))
+  }
+
+  onToggleEdit = (id) => {
+    this.setState(({ todoData }) => ({
+      todoData: this.toggleProperty(todoData, id, 'editing'),
+    }))
+  }
+
+  onLabelChange = (arr, id, e, text) => {
+    const inx = arr.findIndex((elem) => elem.id === id)
+    const oldItem = arr[inx]
+    const newItem = { ...oldItem, name: text }
+    const newArr = [...arr.slice(0, inx), newItem, ...arr.slice(inx + 1)]
+
+    this.setState(() => ({
+      todoData: newArr,
+    }))
+  }
+
+  addItem = (text = 'NEW') => {
+    const newItem = this.createTodoItem(text)
+
+    this.setState(({ todoData }) => {
+      const newArr = [...todoData, newItem]
+      return {
+        todoData: newArr,
+      }
+    })
+  }
+
+  deleteItem = (id) => {
+    this.setState(({ todoData }) => {
+      const inx = todoData.findIndex((elem) => elem.id === id)
+
+      const newArr = [...todoData.slice(0, inx), ...todoData.slice(inx + 1)]
+
+      return {
+        todoData: newArr,
+      }
+    })
+  }
+
+  deleteAllItems = () => {
+    this.setState(({ todoData }) => ({
+      todoData: todoData.filter((elem) => elem.done !== true),
+    }))
+  }
+
+  toggleProperty(arr, id, propName) {
+    const inx = arr.findIndex((elem) => elem.id === id)
+    const oldItem = arr[inx]
+    const newItem = { ...oldItem, [propName]: !oldItem[propName] }
+
+    return [...arr.slice(0, inx), newItem, ...arr.slice(inx + 1)]
+  }
+
+  createTodoItem(label) {
+    return {
+      name: label,
+      done: false,
+      editing: false,
+      id: this.maxId++,
     }
   }
 
   render() {
-    const { todoData, activeFilter } = this.state;
-    const doneCount = todoData.filter((elem) => elem.done).length;
+    const { todoData, activeFilter } = this.state
+    const doneCount = todoData.filter((elem) => elem.done).length
 
     return (
       <section className="todoapp">
@@ -144,8 +143,7 @@ export default class TodoApp extends React.Component {
             filterAll={this.filterAll}
           />
         </section>
-        <TestAddButton onAdded={this.addItem} />
       </section>
-    );
+    )
   }
 }

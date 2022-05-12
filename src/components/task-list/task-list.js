@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Task from '../task';
-import './task-list.css';
-import TaskEdit from '../task-edit';
+import Task from '../task'
+import './task-list.css'
+import TaskEdit from '../task-edit'
 
 export default class TaskList extends React.Component {
   static defaultProps = {
@@ -12,18 +12,20 @@ export default class TaskList extends React.Component {
     onToggleDone: () => {},
     onDeleted: () => {},
     onLabelChange: () => {},
-  };
+  }
 
   static propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.object),
+    todos: PropTypes.object,
     onToggleEdit: PropTypes.func,
     onToggleDone: PropTypes.func,
     onDeleted: PropTypes.func,
     onLabelChange: PropTypes.func,
-  };
+  }
 
   render() {
-    const { todos, onToggleEdit, onToggleDone, onDeleted, onLabelChange } = this.props;
+    const {
+      todos, onToggleEdit, onToggleDone, onDeleted, onLabelChange,
+    } = this.props
 
     const elements = todos.map((elem) => {
       if (elem.editing) {
@@ -36,7 +38,7 @@ export default class TaskList extends React.Component {
               onLabelChange={onLabelChange}
             />
           </li>
-        );
+        )
       }
       return (
         <li key={elem.id}>
@@ -47,9 +49,9 @@ export default class TaskList extends React.Component {
             onDeleted={() => onDeleted(elem.id)}
           />
         </li>
-      );
+      )
     })
 
-    return <ul className="task-list__container">{elements}</ul>;
+    return <ul className="task-list__container">{elements}</ul>
   }
 }

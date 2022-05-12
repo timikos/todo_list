@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import NewTaskForm from '../new-task-form'
-import './app-header.css';
+import './app-header.css'
 
 function AppHeader({ addItem }) {
   return (
@@ -10,15 +10,15 @@ function AppHeader({ addItem }) {
       <h1 className="header__text">todos</h1>
       <NewTaskForm addItem={addItem} />
     </header>
-  );
+  )
 }
 
 AppHeader.defaultProps = {
   addItem: () => {},
-};
+}
 
 AppHeader.propTypes = {
   addItem: PropTypes.func,
-};
+}
 
-export default AppHeader;
+export default AppHeader

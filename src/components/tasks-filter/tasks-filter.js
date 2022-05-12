@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import './tasks-filter.css';
+import './tasks-filter.css'
 
 export default class TasksFilter extends React.Component {
   static defaultProps = {
     filterActive: () => {},
     filterCompleted: () => {},
     filterAll: () => {},
-  };
+  }
 
   static propTypes = {
     filterActive: PropTypes.func,
     filterCompleted: PropTypes.func,
     filterAll: PropTypes.func,
-  };
+  }
 
   render() {
-    let classNameContainer = '';
+    let classNameContainer = ''
     if (this.selected) {
-      classNameContainer += ' filter_selected';
+      classNameContainer += ' filter_selected'
     }
-    const { filterActive, filterCompleted, filterAll } = this.props;
+    const { filterActive, filterCompleted, filterAll } = this.props
     return (
       <ul className="filters__container">
         <li key={1}>
@@ -40,6 +40,6 @@ export default class TasksFilter extends React.Component {
           </button>
         </li>
       </ul>
-    );
+    )
   }
 }

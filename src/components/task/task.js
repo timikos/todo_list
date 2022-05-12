@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import CreatedTimeForTask from '../created-time-for-task';
+import CreatedTimeForTask from '../created-time-for-task'
 
-import './task.css';
+import './task.css'
 
 export default class Task extends React.Component {
   static defaultProps = {
@@ -14,7 +14,7 @@ export default class Task extends React.Component {
     onToggleEdit: () => {},
     onToggleDone: () => {},
     onDeleted: () => {},
-  };
+  }
 
   static propTypes = {
     name: PropTypes.string,
@@ -24,17 +24,19 @@ export default class Task extends React.Component {
     onToggleEdit: PropTypes.func,
     onToggleDone: PropTypes.func,
     onDeleted: PropTypes.func,
-  };
+  }
 
   render() {
-    const { name, done, editing, onDeleted, onToggleDone, onToggleEdit } = this.props;
+    const {
+      name, done, editing, onDeleted, onToggleDone, onToggleEdit,
+    } = this.props
 
-    let classNameContainer = '';
+    let classNameContainer = ''
     if (editing) {
-      classNameContainer += ' task_hidden';
+      classNameContainer += ' task_hidden'
     }
     if (done) {
-      classNameContainer += ' task_completed';
+      classNameContainer += ' task_completed'
     }
 
     return (
@@ -47,6 +49,6 @@ export default class Task extends React.Component {
         <button className="icon icon-edit" onClick={onToggleEdit} />
         <button className="icon icon-destroy" onClick={onDeleted} />
       </div>
-    );
+    )
   }
 }

@@ -1,30 +1,30 @@
-import React from 'react';
+import React from 'react'
 
-import './new-task-form.css';
+import './new-task-form.css'
 
 export default class NewTaskForm extends React.Component {
-  static defaultProps = {};
+  static defaultProps = {}
 
-  static propTypes = {};
+  static propTypes = {}
 
   state = {
     label: '',
-  };
+  }
 
-  placeholderSearchText = 'What needs to be done?';
+  placeholderSearchText = 'What needs to be done?'
 
   onLabelChange = (e) => {
     this.setState({
       label: e.target.value,
-    });
+    })
   }
 
   onSubmit = (e) => {
-    e.preventDefault();
-    this.props.addItem(this.state.label);
+    e.preventDefault()
+    this.props.addItem(this.state.label)
     this.setState({
       label: '',
-    });
+    })
   }
 
   render() {
@@ -39,6 +39,6 @@ export default class NewTaskForm extends React.Component {
           value={this.state.label}
         />
       </form>
-    );
+    )
   }
 }

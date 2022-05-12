@@ -27,8 +27,12 @@
     },
     "plugins": ["react", "prettier", "import"],
     "rules": {
+        "react/button-has-type": "off",
+        "no-plusplus": "off",
+        "react/static-property-placement": "off",
+        "space-before-function-paren": "off",
         "indent": ["error", 2],
-        "prettier/prettier": "error",
+        "prettier/prettier": "off",
         "linebreak-style": [0, "unix"],
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
