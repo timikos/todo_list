@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { formatDistanceToNowStrict } from 'date-fns'
 
 import './created-time-for-task.css'
 
 function CreatedTimeForTask () {
   const currentDate = new Date()
-  const createDate = new Date()
-  const [timeCreated, setTime] = useState(formatDistanceToNow(createDate, currentDate))
+  const [timeCreated, setTime] = useState(`created ${formatDistanceToNowStrict(currentDate)} ago`)
 
   useEffect(() => {
-    const timerID = setInterval(() => {
-      setTime(() => formatDistanceToNow(createDate, currentDate))
-    }, 1000)
+    const timerID = setInterval(
+      () => {
+        setTime(`created ${formatDistanceToNowStrict(currentDate)} ago`)
+      },
+      1000,
+    )
 
     return () => clearInterval(timerID)
   }, [])

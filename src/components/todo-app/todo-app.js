@@ -21,6 +21,7 @@ function TodoApp () {
   ])
   const [activeFilter, setFilter] = useState('')
   const doneCount = todoData.filter((elem) => elem.done).length
+  const activeCount = todoData.length - doneCount
 
   const filterAll = () => {
     setFilter(() => 'all')
@@ -89,6 +90,7 @@ function TodoApp () {
         />
         <Footer
           doneCount={doneCount}
+          activeCount={activeCount}
           delAllItems={deleteAllItems}
           filterActive={filterActive}
           filterCompleted={filterCompleted}

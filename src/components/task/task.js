@@ -10,19 +10,27 @@ function Task ({
   onToggleDone, onToggleEdit,
 }) {
   let classNameContainer = ''
+  let checked = false
   if (editing) {
     classNameContainer += ' task_hidden'
   }
   if (done) {
     classNameContainer += ' task_completed'
+    checked = true
   }
   return (
-    <div className={classNameContainer}>
-      <input className="radio-button__toggle" />
-      <label
-        role="presentation"
+    <div
+      className={classNameContainer}
+    >
+      <input
+        type="checkbox"
         onClick={onToggleDone}
         onKeyDown={() => {}}
+        className="radio-button__toggle"
+        checked={checked}
+      />
+      <label
+        role="presentation"
         className="task__label"
       >
         <span className="task__description">{name}</span>

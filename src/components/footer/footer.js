@@ -4,14 +4,20 @@ import './footer.css'
 import TasksFilter from '../tasks-filter'
 
 function Footer({
-  doneCount, filterActive, filterCompleted, filterAll, delAllItems,
+  doneCount, activeCount,
+  filterActive, filterCompleted,
+  filterAll, delAllItems,
 }) {
   return (
     <footer className="footer__container">
       <span className="footer__todo-count">
         {doneCount}
         {' '}
-        items left
+        items left,
+        {' '}
+        {activeCount}
+        {' '}
+        items active
       </span>
       <TasksFilter
         filterActive={filterActive}
