@@ -28,6 +28,7 @@
     },
     "plugins": ["react", "prettier", "import"],
     "rules": {
+        "jsx-a11y/label-has-associated-control": "off",
         "no-shadow": "off",
         "react/jsx-props-no-spreading": "off",
         "react/button-has-type": "off",

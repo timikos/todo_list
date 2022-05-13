@@ -19,7 +19,6 @@ function TaskList ({
           <TaskEdit
             {...elem}
             todos={todos}
-            onToggleEdit={() => onToggleEdit(elem.id)}
             onLabelChange={onLabelChange}
             addItem={addItem}
           />

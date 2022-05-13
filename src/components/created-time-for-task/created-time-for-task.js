@@ -6,7 +6,7 @@ import './created-time-for-task.css'
 function CreatedTimeForTask () {
   const currentDate = new Date()
   const createDate = new Date()
-  const [timeCreated, setTime] = useState()
+  const [timeCreated, setTime] = useState(formatDistanceToNow(createDate, currentDate))
 
   useEffect(() => {
     const timerID = setInterval(() => {

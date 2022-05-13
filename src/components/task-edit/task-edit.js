@@ -5,7 +5,7 @@ import './task-edit.css'
 
 function TaskEdit ({
   id, todos,
-  onToggleEdit, onLabelChange,
+  onLabelChange,
 }) {
   const [label, setLabel] = useState('')
 
@@ -15,7 +15,6 @@ function TaskEdit ({
         onSubmit={(e) => {
           e.preventDefault()
           onLabelChange(todos, id, e, label)
-          onToggleEdit(id)
         }}
       >
         <input
@@ -34,14 +33,17 @@ function TaskEdit ({
 TaskEdit.defaultProps = {
   todos: [],
   id: 1,
-  onToggleEdit: () => {},
   onLabelChange: () => {},
 }
 
 TaskEdit.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string),
+  todos: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   id: PropTypes.number,
-  onToggleEdit: PropTypes.func,
   onLabelChange: PropTypes.func,
 }
 

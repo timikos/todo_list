@@ -19,12 +19,25 @@ function Task ({
   return (
     <div className={classNameContainer}>
       <input className="radio-button__toggle" />
-      <label onClick={onToggleDone} className="task__label">
+      <label
+        role="presentation"
+        onClick={onToggleDone}
+        onKeyDown={() => {}}
+        className="task__label"
+      >
         <span className="task__description">{name}</span>
         <CreatedTimeForTask />
       </label>
-      <button className="icon icon-edit" onClick={onToggleEdit} />
-      <button className="icon icon-destroy" onClick={onDeleted} />
+      <button
+        className="icon icon-edit"
+        onClick={onToggleEdit}
+        aria-label="edit"
+      />
+      <button
+        className="icon icon-destroy"
+        onClick={onDeleted}
+        aria-label="delete"
+      />
     </div>
   )
 }
