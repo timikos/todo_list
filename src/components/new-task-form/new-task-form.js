@@ -23,26 +23,31 @@ function NewTaskForm ({ addItem }) {
     e.preventDefault()
     addItem(label)
     setLabel('')
-    setMin(0)
-    setSec(0)
+    // setMin(null)
+    // setSec(0)
   }
   return (
-    <form className="new-task__container" onSubmit={onSubmit}>
+    <form
+      className="new-task__container"
+      onSubmit={onSubmit}
+    >
       <input
         type="text"
         className="new-task__input"
         placeholder={placeholderSearchText}
         onChange={onLabelChange}
         value={label}
+
       />
       <input
+        type="text"
         className="new-task__timer"
         placeholder="Min"
         onChange={onMinChange}
         value={min}
-
       />
       <input
+        type="text"
         className="new-task__timer"
         placeholder="Sec"
         onChange={onSecChange}
