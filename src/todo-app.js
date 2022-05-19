@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import AppHeader from '../app-header'
-import TaskList from '../task-list'
-import Footer from '../footer'
+import AppHeader from './components/app-header'
+import TaskList from './components/task-list'
+import Footer from './components/footer'
 
 import './todo-app.css'
 
