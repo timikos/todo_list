@@ -18,7 +18,7 @@ function CreatedTimeForTask () {
     return () => clearInterval(timerID)
   }, [])
 
-  return (<span className="created-time">{timeCreated}</span>)
+  return (<span className="task__description">{timeCreated}</span>)
 }
 
 export default CreatedTimeForTask

@@ -4,15 +4,27 @@ import './new-task-form.css'
 
 function NewTaskForm ({ addItem }) {
   const [label, setLabel] = useState('')
+  const [sec, setSec] = useState(0)
+  const [min, setMin] = useState(0)
   const placeholderSearchText = 'What needs to be done?'
   const onLabelChange = (e) => {
     e.preventDefault()
     setLabel(e.target.value)
   }
+  const onMinChange = (e) => {
+    e.preventDefault()
+    setMin(e.target.value)
+  }
+  const onSecChange = (e) => {
+    e.preventDefault()
+    setSec(e.target.value)
+  }
   const onSubmit = (e) => {
     e.preventDefault()
     addItem(label)
     setLabel('')
+    setMin(0)
+    setSec(0)
   }
   return (
     <form className="new-task__container" onSubmit={onSubmit}>
@@ -22,6 +34,19 @@ function NewTaskForm ({ addItem }) {
         placeholder={placeholderSearchText}
         onChange={onLabelChange}
         value={label}
+      />
+      <input
+        className="new-task__timer"
+        placeholder="Min"
+        onChange={onMinChange}
+        value={min}
+
+      />
+      <input
+        className="new-task__timer"
+        placeholder="Sec"
+        onChange={onSecChange}
+        value={sec}
       />
     </form>
   )

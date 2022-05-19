@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import CreatedTimeForTask from '../created-time-for-task'
 
 import './task.css'
+import Timer from '../timer'
 
 function Task ({
-  name, done,
+  name, done, timer,
   editing, onDeleted,
   onToggleDone, onToggleEdit,
 }) {
-  let classNameContainer = ''
+  let classNameContainer = 'view'
   let checked = false
   if (editing) {
     classNameContainer += ' task_hidden'
@@ -33,7 +34,10 @@ function Task ({
         role="presentation"
         className="task__label"
       >
-        <span className="task__description">{name}</span>
+        <span className="task__title">{name}</span>
+        <Timer
+          timer={timer}
+        />
         <CreatedTimeForTask />
       </label>
       <button

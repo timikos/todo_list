@@ -12,6 +12,7 @@ function TodoApp () {
     done: false,
     editing: false,
     id: num,
+    timer: 0,
   })
 
   const [todoData, setElemTodo] = useState([
