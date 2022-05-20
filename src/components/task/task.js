@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 
 import CreatedTimeForTask from '../created-time-for-task'
-
 import './task.css'
 import TimerContainer from '../timer-container'
 

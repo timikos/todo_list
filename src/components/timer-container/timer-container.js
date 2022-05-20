@@ -7,7 +7,7 @@ function TimerContainer({ timerMin, timerSec }) {
   const fullTime = timerSec + (timerMin * 60) + 1
   const [time, setTime] = useState()
   const [duration, setDuration] = useState()
-  const [statusTimer, setStatusTimer] = useState(false)
+  const [statusTimer, setStatusTimer] = useState(true)
   const onTimerUpdate = ({ time, duration }) => {
     setTime(time)
     setDuration(duration)
@@ -19,9 +19,8 @@ function TimerContainer({ timerMin, timerSec }) {
     setStatusTimer(false)
   }
   useEffect(() => {
-    setStatusTimer(true)
     setTimeout(() => {
-      setStatusTimer(false)
+      setStatusTimer(!statusTimer)
     }, 900)
   }, [])
 
