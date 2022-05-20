@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import CreatedTimeForTask from '../created-time-for-task'
 
 import './task.css'
-import Timer from '../timer'
+import TimerContainer from '../timer-container'
 
 function Task ({
-  name, done, timer,
+  name, done, timerMinutes, timerSeconds,
   editing, onDeleted,
   onToggleDone, onToggleEdit,
 }) {
@@ -19,6 +19,9 @@ function Task ({
     classNameContainer += ' task_completed'
     checked = true
   }
+
+  const onHandleChange = () => {
+  }
   return (
     <div
       className={classNameContainer}
@@ -26,6 +29,7 @@ function Task ({
       <input
         type="checkbox"
         onClick={onToggleDone}
+        onChange={onHandleChange}
         onKeyDown={() => {}}
         className="radio-button__toggle"
         checked={checked}
@@ -35,9 +39,11 @@ function Task ({
         className="task__label"
       >
         <span className="task__title">{name}</span>
-        <Timer
-          timer={timer}
+        <TimerContainer
+          timerMin={timerMinutes}
+          timerSec={timerSeconds}
         />
+
         <CreatedTimeForTask />
       </label>
       <button

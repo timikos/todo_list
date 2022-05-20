@@ -7,18 +7,19 @@ import Footer from './components/footer'
 import './todo-app.css'
 
 function TodoApp () {
-  const createTodoItem = (label, num = 1) => ({
+  const createTodoItem = (label, minutes, seconds, num = 1) => ({
     name: label,
     done: false,
     editing: false,
     id: num,
-    timer: 0,
+    timerMinutes: minutes,
+    timerSeconds: seconds,
   })
 
   const [todoData, setElemTodo] = useState([
-    createTodoItem('Completed task', 1),
-    createTodoItem('Editing task', 2),
-    createTodoItem('Active task', 3),
+    createTodoItem('Completed task', 10, 10, 1),
+    createTodoItem('Editing task', 15, 20, 2),
+    createTodoItem('Active task', 20, 30, 3),
   ])
   const [activeFilter, setFilter] = useState('')
   const doneCount = todoData.filter((elem) => elem.done).length
@@ -62,8 +63,8 @@ function TodoApp () {
     setElemTodo(() => newArr)
   }
 
-  const addItem = (text = 'NEW') => {
-    const newItem = createTodoItem(text, todoData.length + 1)
+  const addItem = (minutes, seconds, text = 'NEW') => {
+    const newItem = createTodoItem(text, minutes, seconds, todoData.length + 1)
     const newArr = [...todoData, newItem]
     setElemTodo(() => newArr)
   }
@@ -76,7 +77,6 @@ function TodoApp () {
   const deleteAllItems = () => {
     setElemTodo(() => todoData.filter((elem) => elem.done !== true))
   }
-
   return (
     <section className="todoapp">
       <AppHeader addItem={addItem} />

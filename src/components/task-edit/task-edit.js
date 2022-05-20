@@ -8,14 +8,15 @@ function TaskEdit ({
   onLabelChange,
 }) {
   const [label, setLabel] = useState('')
+  const onSubmit = (e) => {
+    e.preventDefault()
+    onLabelChange(todos, id, e, label)
+  }
 
   return (
     <div className="">
       <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          onLabelChange(todos, id, e, label)
-        }}
+        onSubmit={onSubmit}
       >
         <input
           type="text"

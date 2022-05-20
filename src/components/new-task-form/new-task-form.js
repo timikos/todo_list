@@ -4,27 +4,18 @@ import './new-task-form.css'
 
 function NewTaskForm ({ addItem }) {
   const [label, setLabel] = useState('')
-  const [sec, setSec] = useState(0)
-  const [min, setMin] = useState(0)
-  const placeholderSearchText = 'What needs to be done?'
-  const onLabelChange = (e) => {
+  const [sec, setSec] = useState('')
+  const [min, setMin] = useState('')
+  const onOptionChange = (setOption, e) => {
     e.preventDefault()
-    setLabel(e.target.value)
-  }
-  const onMinChange = (e) => {
-    e.preventDefault()
-    setMin(e.target.value)
-  }
-  const onSecChange = (e) => {
-    e.preventDefault()
-    setSec(e.target.value)
+    setOption(e.target.value)
   }
   const onSubmit = (e) => {
     e.preventDefault()
-    addItem(label)
+    addItem(+min, +sec, label)
     setLabel('')
-    // setMin(null)
-    // setSec(0)
+    setMin('')
+    setSec('')
   }
   return (
     <form
@@ -34,25 +25,25 @@ function NewTaskForm ({ addItem }) {
       <input
         type="text"
         className="new-task__input"
-        placeholder={placeholderSearchText}
-        onChange={onLabelChange}
+        placeholder="What needs to be done?"
+        onChange={onOptionChange.bind(this, setLabel)}
         value={label}
-
       />
       <input
-        type="text"
+        type="number"
         className="new-task__timer"
         placeholder="Min"
-        onChange={onMinChange}
+        onChange={onOptionChange.bind(this, setMin)}
         value={min}
       />
       <input
-        type="text"
+        type="number"
         className="new-task__timer"
         placeholder="Sec"
-        onChange={onSecChange}
+        onChange={onOptionChange.bind(this, setSec)}
         value={sec}
       />
+      <input type="submit" style={{ display: 'none' }} />
     </form>
   )
 }
