@@ -1,3 +1,8 @@
 TODO Application
 
-https://todo-5klo1zh75-timikos1.vercel.app/
+https://todo-timikos1.vercel.app/
+
+
+Timer GH-pages
+
+https://timikos.github.io/todo_list/
