@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
 import CreatedTimeForTask from '../created-time-for-task'
+import TimerContainer from '../timer-container'
 
 import './task.css'
-import TimerContainer from '../timer-container'
 
 function Task ({
   name, done, timerMinutes, timerSeconds,
