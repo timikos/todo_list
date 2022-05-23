@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
 
 import CreatedTimeForTask from '../created-time-for-task'
+<<<<<<< HEAD:src/components/task/task.jsx
 import TimerContainer from '../timer-container'
 
+=======
+>>>>>>> 9ed738441bb3e88031d378bc171293aceb4c5b4f:src/components/task/task.js
 import './task.css'
 
 function Task ({
